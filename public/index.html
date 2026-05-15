@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eFÁCIL - Search Engine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="background-blob blob-1"></div>
+    <div class="background-blob blob-2"></div>
+    
+    <div class="container">
+        <header>
+            <h1>eFÁCIL - Search Engine</h1>
+            <p>Processamento massivo de fretes com o ID #searchCep_ResultAmount.</p>
+        </header>
+
+        <main>
+            <div class="card-grid single-column">
+                <section class="card">
+                    <div class="card-header">
+                        <span class="icon">📊</span>
+                        <h2>Processamento em Massa</h2>
+                    </div>
+                    <div class="form-group">
+                        <label for="bulk-cep">CEP de Destino (para todos)</label>
+                        <input type="text" id="bulk-cep" placeholder="Ex: 04547-006">
+                    </div>
+                    <div class="drop-zone" id="drop-zone">
+                        <span class="drop-zone__prompt">Arraste a planilha ou clique aqui</span>
+                        <input type="file" name="file" id="file-input" class="drop-zone__input" accept=".xlsx, .xls, .csv">
+                    </div>
+                    <button id="btn-bulk-search" class="btn-primary">Iniciar Processamento eFácil</button>
+                </section>
+            </div>
+
+            <div id="status-container" class="status-container hidden">
+                <div class="loader-container">
+                    <div class="loader"></div>
+                    <p id="status-text">Processando motores...</p>
+                </div>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="results-header">
+                    <h3>Resultados Extraídos</h3>
+                    <button id="btn-download" class="btn-download">Baixar Planilha</button>
+                </div>
+                <div class="table-wrapper">
+                    <table id="results-table">
+                        <thead>
+                            <tr>
+                                <th>SKU</th>
+                                <th>Tipo</th>
+                                <th>Preço</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
